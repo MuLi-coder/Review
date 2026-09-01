@@ -297,6 +297,6 @@ ps:RGB分别表示某种颜色的滤光片
 $$
 Pixel\space Coordinate\to Camera\space Coordinate\to World\space Coordinate
 $$
-将像素坐标定义为：$(u,v)$
-相机坐标依赖于相机位姿
+
+
 
