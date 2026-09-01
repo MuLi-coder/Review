@@ -298,5 +298,5 @@ $$
 Pixel\space Coordinate\to Camera\space Coordinate\to World\space Coordinate
 $$
 将像素坐标定义为：$(u,v)$
-
+相机坐标
 
