@@ -344,21 +344,19 @@ $$
 
 那么两个坐标转化：
 
-
 $$
-
 K \cdot
 \begin{bmatrix}
 x_n \\
 y_n \\
 1
-\end{bmatrix}
-=
+\end{bmatrix}=
 \begin{bmatrix}
 u \\
 v \\
 1
 \end{bmatrix}
+
 $$
 
 好了，有了方向，下面乘深度就可以得到距离了，于是有：
@@ -369,8 +367,7 @@ $$
 X_c \\
 Y_c \\
 Z_c
-\end{bmatrix}
-=
+\end{bmatrix}=
 Z_c\cdot
 \begin{bmatrix}
 x_n \\
@@ -402,8 +399,7 @@ T_{cw}=
 \begin{bmatrix}
 R & t \\
 O & 1
-\end{bmatrix}
-=
+\end{bmatrix}=
 \begin{bmatrix}
 r_{11} & r_{12} & r_{13} & t_x \\
 r_{21} & r_{22} & r_{23} & t_y \\
@@ -421,8 +417,7 @@ s
 u \\
 v \\
 1
-\end{bmatrix}
-=
+\end{bmatrix}=
 K\cdot
 \begin{bmatrix}
 R & t
