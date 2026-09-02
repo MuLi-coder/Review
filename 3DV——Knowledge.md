@@ -296,7 +296,7 @@ $$
 Pixel\space Coordinate\to Camera\space Coordinate\to World\space Coordinate
 $$
 
-### 坐标转化的基本设定
+### 5.4 坐标转化的基本设定
 
 首先我们要去理解为什么需要这样的转化，这几个坐标具备怎样的基础设定
 
@@ -388,3 +388,52 @@ $$
 相机在世界坐标系的位置：$t=(t_x,t_y,t_z)^T$
 相机在世界坐标系中的旋转状态：三维正交矩阵 $R$
 
+像刚刚二维一样，我们引入一个四维矩阵同时完成旋转和平移的工作，这个矩阵我们就称为外参矩阵：
+
+$$
+T_{cw}=
+\begin{bmatrix}
+R & t \\
+O & 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+r_{11} & r_{12} & r_{13} & t_x \\
+r_{21} & r_{22} & r_{23} & t_y \\
+r_{31} & r_{32} & r_{33} & t_z \\
+0 & 0 & 0 & 1
+\end{bmatrix}
+$$
+
+到这里，我们就有了从像素坐标到世界坐标的全过程：
+
+$$
+s
+\begin{bmatrix}
+u \\
+v \\
+1
+\end{bmatrix}
+=
+K\cdot
+\begin{bmatrix}
+R & t
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+X_w \\
+Y_w \\
+Z_w \\
+1
+\end{bmatrix}
+$$
+其中的 $s$ 是尺度因子，就相当于 $Z_c$
+
+### 5.10 深度，欧氏距离，逆深度与视差
+
+我们在此基础上去理解几个概念
+
+- 投影深度 $(z{-}depth)$  ：相机坐标系中的 Z 分量
+- 欧氏距离 $(range)$ ：关心到三维点的直线距离
+- 逆深度 $(inverse\space depth)$ ：$1/Z$ 或某种仿射归一化形式
+- 视差 $(disparity)$ ：双目对应点的位置差，整流双目中满足 $d=f\cdot \frac{B}{Z}$
