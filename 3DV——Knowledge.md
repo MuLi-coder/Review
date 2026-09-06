@@ -388,7 +388,7 @@ $$
 也就是另一种写法：
 
 $$
-\begin{bmatrix}
+Z_c\begin{bmatrix}
 u \\
 v \\
 1
@@ -525,3 +525,93 @@ $$
 
 
 ![[Pasted image 20260903113210.jpg]]
+
+### 6.2 本质矩阵——极线几何
+
+了解完了所有基础概念之后，下面就是我们如何确认两个点对应三维空间唯一的点。
+
+借用上面的图，我们假定：
+
+$$
+X_1 =\begin{bmatrix}x_1 \\ y_1 \\ 1 \end{bmatrix},
+X_2 =\begin{bmatrix}x_2 \\ y_2 \\ 1 \end{bmatrix},
+O_1O_2 = t = \begin{bmatrix}t_1 \\ t_2 \\ t_3 \end{bmatrix}
+$$
+
+其中，$X_1$ 和 $t$ 的坐标系是 $O_1$ ，$X_2$ 的坐标系是 $O_2$ 。
+
+下面我们都转移到 $O_1$ 坐标系中。
+
+$$
+X_{X_2\space in\space left} = R\cdot X_2 + t 
+$$
+
+那么如果是同一点，会有 $X_1$ ，$X$ ，$t$ 共面，则：
+$$
+\begin{align}
+0 &= X_1^T\cdot (t\times X) \\
+&=X_1^T\cdot [t\times (RX_2+t)] \\
+&=X_1^T\cdot(t\times RX_2)
+\end{align}
+$$
+
+而叉乘的矩阵表示，对于向量 $v_1$ 和 $v_2$ ,引入反对称矩阵的表示：
+$$
+v_1\times v_2 = [v1]_{\times}\cdot v_2,其中\space [v_1]_{\times}=
+\begin{bmatrix}0 & -z_1 & y_1 \\ z_1 & 0 & -x_1 \\ -y_1 & x_1 & 0 \end{bmatrix}
+$$
+那么继续转化为：
+$$
+\begin{align}
+0 &= X_1^T\cdot (t\times RX_2) \\
+&= X_1^T\cdot [t]_{\times}R\cdot X_2
+\end{align}
+$$
+
+此时我们就定义：
+$$
+E = [t]_{\times}\cdot R
+$$
+
+这里的 $E$ 我们就称为 **本质矩阵**
+
+就可以得到著名的 **对极约束方程**
+$$
+X_1^TEX_2=0
+$$
+
+### 6.3 基础矩阵——融入内参
+
+有了本质矩阵，里面直接操作的是归一化坐标，然而平常我们处理更多的是像素坐标，所以，我们融入内参矩阵进一步转化：
+$$
+\begin{align}
+X_1 &= K_1^{-1}\cdot p_1 \\
+X_2 &= K_2^{-1}\cdot p_2
+\end{align}
+$$
+
+带入对极约束方程：
+$$
+\begin{align}
+0 &= (K_1^{-1}p_1)^TE(K_2^{-1}p_2) \\
+&=p_1^T\cdot K_1^{-T}EK_2^{-1}\cdot p_2
+\end{align}
+$$
+
+此时我们定义：
+$$
+F = K_1^{-T}EK_2^{-1}
+$$
+
+这里的 $F$ 我们就定义为基础矩阵
+
+于是对于两幅图片的同一点，我们有约束：
+$$
+\begin{align}
+p_1^T\cdot F\cdot p_2 &= 0 \\\\
+其中：F= K_1^{-T}EK_2^{-1}&,E = [t]_{\times}R \\\\
+其中：(R,t)是P_2变化&到 O_1坐标系的参数
+\end{align}
+$$
+
+
