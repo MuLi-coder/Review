@@ -637,7 +637,7 @@ $$
 两个点矩阵分别进行如下操作，以左矩阵为例：
 
 1. 计算所有点的质心 $(\bar{u}_L,\bar{v}_L)$ 和所有点到质心的平均距离 $d_L$ 
-2. 构造一个 $3\times 3$ 的归一化变换矩阵 $T_L$ :
+2. 构造一个 $3\times 3$ 的归一化变换矩阵 $T_L$ ，这个矩阵先平移，后缩放:
 	$$
 	T_L=\begin{bmatrix}
 	\frac{\sqrt{2}}{d_L} & 0 & -\bar{u}_L\frac{\sqrt{2}}{d_L} \\
@@ -646,13 +646,18 @@ $$
 	\end{bmatrix}
 	$$
 
-3. 
+3. 进行归一化：
+	$$
+	\hat{P}_L = P_L\cdot T_L^T 
+	$$
+
+同理，得到 $\hat{P_R}$ 
 
 ##### 6.5.3 RANSAC 抽样
 
 RANSAC全称 RANdom SAmple Consensus 中文：随机抽样一致性
 
-
+这是一种思路，下面的操作就是在 $P_L$ 和 $P_R$ 中随机抽取八对点
 
 
 
