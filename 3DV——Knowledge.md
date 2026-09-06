@@ -519,6 +519,8 @@ $$
 
 并且我们将三点确定的平面称作 $Epipolar\space Plane$ （极平面）
 
+极平面和像平面的交线就是 $Epipolar\space Line$ （级线）
+
 下一步，将基线延长，他将会和两个相机的 $Image\space Plane$ （像平面）相交 ，形成两个 $Epihole$ （极点） 
 
 
