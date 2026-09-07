@@ -657,7 +657,60 @@ $$
 
 RANSAC全称 RANdom SAmple Consensus 中文：随机抽样一致性
 
-这是一种思路，下面的操作就是在 $P_L$ 和 $P_R$ 中随机抽取八对点
+在开始抽样之前，我们来看一下基本的验证思路：
+找到一对匹配点，然后代入约束方程检验：
+
+$$
+x_1^TFx_2=0 
+$$
+
+展开来有：
+$$
+\begin{align}
+0=x_1^TFx_2 =&
+\begin{bmatrix}u_1 & v_1 & 1 \end{bmatrix}\cdot 
+\begin{bmatrix}
+f_{11} & f_{12} & f_{13} \\
+f_{21} & f_{22} & f_{23} \\
+f_{31} & f_{32} & f_{33}
+\end{bmatrix}
+\cdot \begin{bmatrix}u_2 \\ v_2 \\ 1 \end{bmatrix} \\
+=&\begin{bmatrix}u_1 & v_1 & 1 \end{bmatrix}\cdot
+\begin{bmatrix}
+f_{11}u_2+f_{12}v_2+f_{13} \\
+f_{21}u_2+f_{22}v_2+f_{23} \\
+f_{31}u_2+f_{32}v_2+f_{33}
+\end{bmatrix}\\
+=&\space f_{11}u_1u_2+f_{12}u_1v_2+f_{13}u_1\\
+&+f_{21}v_1u_2+f_{22}v_1v_2+f_{23}v_1\\
+&+f_{31}u_2+f_{32}v_2+f_{33}
+\end{align}
+$$
+
+也就是一对匹配点，产生一个齐次线性方程。由于是齐次，所以实际上只有八个自由度，于是我们只需要找到八个点就可以确定所有系数。
+
+下面就是基于这种思路产生的一种算法框架RANSAC。
+
+RANSAC是一种思路，下面的操作就是在 $P_L$ 和 $P_R$ 中随机抽取八对点。
+
+我们将基础矩阵拆开成一维列向量：
+
+$$
+f=\begin{bmatrix}f_{11},f_{12},f_{13},f_{21},f_{22},f_{23},f_{31},f_{32},f_{33} \end{bmatrix}^T
+$$
+
+那么我们抽出了八对点，我们就可以构成系数矩阵 $(8\times 9)$ ：
+$$
+\begin{bmatrix}u_1u_2&u_1v_2&u_1&v_1u_2&v_1v_2&v_1&u_2&v_2&1 \end{bmatrix}
+$$
+
+就有线性方程组：
+$$
+A\cdot f=O
+$$
+
+
+
 
 
 
