@@ -454,7 +454,7 @@ $$
 - 投影深度 $(z{-}depth)$  ：相机坐标系中的 Z 分量
 - 欧氏距离 $(range)$ ：关心到三维点的直线距离
 - 逆深度 $(inverse\space depth)$ ：$1/Z$ 或某种仿射归一化形式
-- 视差 $(disparity)$ ：双目对应点的位置差，整流双目中满足 $d=f\cdot \frac{B}{Z}$
+	- 视差 $(disparity)$ ：双目对应点的位置差，整流双目中满足 $d=f\cdot \frac{B}{Z}$
 
 ## 第六章：两视图几何
 
