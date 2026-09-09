@@ -15,7 +15,74 @@
 
 所以选择了JS作为这次全栈开发的生态。
 
-# 三、Web的数据流动
+
+# 三、一些前置的认识
+
+在正式开始说明之前，我们必须首先建立一些基本的认知
+##
+
+# 四、Web的数据流动
+
+我们先定下我们项目的整体架构：
+
+我们将前端和后端分别作为两个项目独立部署在Vercel中，利用API请求后端。
+
+下图就是数据流的大致过程，我们后续来细致的说明：
+
+```
+① User
+      │
+      ▼
+
+② Browser
+      │
+      │ GET Frontend URL
+      ▼
+
+③ Vercel Frontend Project
+      │
+      │ HTML / CSS / JS
+      ▼
+
+④ Browser
+      │
+      │ Execute app.js
+      │
+      │ fetch()
+      ▼
+
+⑤ Vercel Backend Project
+      │
+      │ Route
+      ▼
+
+⑥ Backend Function
+      │
+      │ Query
+      ▼
+
+⑦ Database
+      │
+      │ Todo Data
+      ▼
+
+⑧ Backend Function
+      │
+      │ JSON
+      ▼
+
+⑨ Browser
+      │
+      │ JavaScript
+      ▼
+
+⑩ DOM Update
+      │
+      ▼
+
+⑪ User sees Todo List
+```
+
 
 ## 1. 故事开始在前端部署之后
 
