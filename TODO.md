@@ -18,16 +18,16 @@ hyper-V --- $\sqrt{}$
 
 # Agent
 
-agent搭建流
+agent搭建流，切实落地到工程产品
 
 # Docker
 
-docker 工作流
+docker 工作流，完成很多内容的快速部署，科研必需
 
 # Vercel
 
-vercel 部署流
+vercel 部署流，部署后端的必需
 
 # 3DV
 
-knowledge
+knowledge，科研的基础知识积累
