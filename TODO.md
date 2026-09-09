@@ -2,6 +2,10 @@
 
 knowledge，科研的基础知识积累
 
+# JS全栈
+
+打通js全栈开发过程，从python过渡到js
+
 # Vercel
 
 vercel 部署流，部署后端的必需
@@ -16,22 +20,21 @@ docker 工作流，完成很多内容的快速部署，科研必需
 
 # 鱼书系列
 
-- 深度学习 $\sqrt{}$ 
-- 强化学习 $\sqrt{}$   
+$\sqrt{}$  深度学习
+
+$\sqrt{}$  强化学习
 
 # python
 
-- 语法复习和学习 $\sqrt{}$ 
+$\sqrt{}$  语法复习和学习
 
 # 数据结构和算法
 
-- Hello 算法
-- C++ 
+Hello 算法
+
+C++ 
 
 # 虚拟机
 
-hyper-V --- $\sqrt{}$ 
+ $\sqrt{}$  hyper-V ---
 
-# JS全栈
-
-打通js全栈开发过程，从python过渡到js
