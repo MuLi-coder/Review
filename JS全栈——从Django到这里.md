@@ -181,13 +181,15 @@ Vercel
 
 `fetch(https://todo-backend.vercel.app/api/todos)`
 
-Domin : `https://todo-backend.vercel.app`
+其中：
+
+- Domin : `https://todo-backend.vercel.app`
 
 域名告诉浏览器：
 
 > 请求目标是那个Web服务
 
-Path : `/api/todos`
+- Path : `/api/todos`
 
 路径告诉后端：
 
@@ -211,6 +213,23 @@ todo-backend/
 └── package.json
 ```
 
+到底应该执行哪一个功能呢？
 
+这个时候就由 ( Routing ) 路由发挥作用了
 
+后端维护一个路由表，将URL和对应的程序进行对应。
+
+具体而言，就是Vercel会根据 URL Path 去和路由表匹配，匹配到相应的功能程序，也就是流程中的：
+
+```
+⑤ Vercel Backend Project
+      │
+      │ Route
+      ▼
+⑥ Backend Function
+```
+
+## 5. 当后端开始工作之后
+
+当相应功能匹配上之后，Vercel 提供的后端运行环境中相应的JS功能代码就开始运行，
 
