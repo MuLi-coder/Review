@@ -193,7 +193,23 @@ Path : `/api/todos`
 
 > 我想访问这个服务器的哪个接口
 
+然后当这个请求到了后端，到了 `todo-backend.vercel.app`
 
+Vercel接收到了，知道这是发给 todo-backend 项目的请求，那么问题来了，这个项目里面有很多的功能，例如：
+
+```
+todo-backend/
+│
+├── api/
+│   │
+│   ├── todos.js
+│   │
+│   ├── users.js
+│   │
+│   └── login.js
+│
+└── package.json
+```
 
 
 
