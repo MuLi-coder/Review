@@ -1,5 +1,5 @@
 
-# PART ONE : 理论部分
+# Part ONE : 理论部分
 ## 一、写在之前
 
 自从上一次我尝试用django进行前后端的耦合开发（  [[Django_review]]  ），到现在已经快一年了。
@@ -328,7 +328,7 @@ Browser
 始终牢记：最终流传在光缆中的内容始终是HTTP Message
 
 
-# PART TWO : 实践项目
+# Part TWO : 实践项目
 
 
 
