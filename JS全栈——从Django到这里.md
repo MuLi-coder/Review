@@ -179,7 +179,7 @@ Vercel
 
 比如说 `fetch` 函数中是这样写的：
 
-`fetch(https://todo-backend.vercel.app)`
+`fetch(https://todo-backend.vercel.app/api/todos)`
 
 那么这说明后端的资源部署在网址为：`https://todo-backend.vercel.app` 的地方
 
