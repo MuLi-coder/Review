@@ -181,6 +181,20 @@ Vercel
 
 `fetch(https://todo-backend.vercel.app/api/todos)`
 
-那么这说明后端的资源部署在网址为：`https://todo-backend.vercel.app` 的地方
+Domin : `https://todo-backend.vercel.app`
+
+域名告诉浏览器：
+
+> 请求目标是那个Web服务
+
+Path : `/api/todos`
+
+路径告诉后端：
+
+> 我想访问这个服务器的哪个接口
+
+
+
+
 
 
