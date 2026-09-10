@@ -18,8 +18,13 @@
 
 # 三、一些前置的认识
 
-在正式开始说明之前，我们必须首先建立一些基本的认知
-##
+在正式开始说明之前，我们必须首先建立一些基本的认知：
+
+## 生态结构
+
+前端和后端分别部署，前端由前端JS发起网络请求，后端由node.js JS发起网络请求。
+
+![[全栈结构.png]]
 
 # 四、Web的数据流动
 
@@ -33,58 +38,149 @@
 ① User
       │
       ▼
-
 ② Browser
       │
       │ GET Frontend URL
       ▼
-
 ③ Vercel Frontend Project
       │
       │ HTML / CSS / JS
       ▼
-
 ④ Browser
       │
       │ Execute app.js
       │
       │ fetch()
       ▼
-
 ⑤ Vercel Backend Project
       │
       │ Route
       ▼
-
 ⑥ Backend Function
       │
       │ Query
       ▼
-
 ⑦ Database
       │
       │ Todo Data
       ▼
-
 ⑧ Backend Function
       │
       │ JSON
       ▼
-
 ⑨ Browser
       │
       │ JavaScript
       ▼
-
 ⑩ DOM Update
       │
       ▼
-
 ⑪ User sees Todo List
 ```
 
-
 ## 1. 故事开始在前端部署之后
 
+当前端资源部署在 Vercel 之后，假设我们得到了一个前端项目的网址：
+
+`https://todo-frontend.vercel.app`
+
+在这个网址对应的服务器中，部署这我们的前端文件，比如：
+
+```
+todo-frontend/
+│
+├── index.html
+│
+├── style.css
+│
+└── app.js
+```
+
+## 2. 当用户按下Enter之后
+
+当我们把URL分享给你的好大儿之后，他在地址栏输入 `https://todo-frontend.vercel.app` ，然后按下了Enter
+
+暂时略过DNS，TCP，IP这些细节，直接关注Web应用层：
+
+```
+Browser
+   │
+   │ HTTP/HTTPS Request
+   │
+   │ GET /
+   ▼
+Vercel
+```
+
+浏览器向部署的服务器发出HTTP请求，请求形式是GET，这一步就相当于：
+
+> 浏览器告诉服务器：“请把这个网址对应的资源给我”
+
+此时，服务器往往会返回html文件，后续浏览器在解析的时候，会发现文件不完整，还会再次发起请求，所以整个过程更像：
+
+```
+① Browser
+    │
+    │ GET /
+    ▼
+② Vercel
+    │
+    │ index.html
+    ▼
+③ Browser
+    │
+    │ 解析 HTML
+    │
+    ├──────── GET /style.css ───────►
+    │
+    └──────── GET /app.js ──────────►
+```
+
+整体归结起来，第一部分的数据流就可以理解为（抽出总数据流的1-4部分）：
+
+```
+① User
+      │
+      ▼
+② Browser
+      │
+      │ GET Frontend URL
+      ▼
+③ Vercel Frontend Project
+      │
+      │ HTML / CSS / JS
+      ▼
+④ Browser
+```
+
+## 3. 浏览器拿到资源之后
+
+当浏览器拿到资源之后，就开始渲染了，此时如果JS中没有向外访问API的部分，那么浏览器就可以把完整的内容端在页面上了。就完成了一次访问。
+
+然而，如果项目需要外部数据，那么前端JS就会通过API访问相应的后端服务器，再次发起HTTP/HTTPS请求，比如依靠 `fetch`。
+
+就可以理解为：
+
+> 浏览器渲染页面时发现缺少必要的数据，根据前端JS代码，向相应的后端服务器索要相关的资源
+
+也就是：
+
+```
+④ Browser
+      │
+      │ Execute app.js
+      │
+      │ fetch()
+      ▼
+⑤ Vercel Backend Project
+```
+
+## 4. 前端向后端发出请求之后
+
+比如说 `fetch` 函数中是这样写的：
+
+`fetch(https://todo-backend.vercel.app)`
+
+那么这说明后端的资源部署在网址为：`https://todo-backend.vercel.app` 的地方
 
 
