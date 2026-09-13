@@ -2,6 +2,9 @@
 
 knowledge，科研的基础知识积累
 
+# python 操作 excel
+
+python 操作excel的方式
 # JS全栈
 
 打通js全栈开发过程，从python过渡到js
