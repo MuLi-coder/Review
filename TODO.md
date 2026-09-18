@@ -4,18 +4,19 @@ knowledge，科研的基础知识积累
 
 # 多方工程打通
 
-本地代码和github仓库的多种联系方式，本地云端有无
+$\sqrt{}$  本地代码和github仓库的多种联系方式，本地云端有无
 
-github和vercel的代码自关联
+$\sqrt{}$  github和vercel的代码自关联
 
-vercel项目和真实域名的DNS解析
+$\sqrt{}$  vercel项目和真实域名的DNS解析
 # Domin
 
-域名购买流程aliyun
+梳理域名购买流程aliyun
 
 # python 操作 excel
 
 python 操作excel的方式
+
 # JS全栈
 
 打通js全栈开发过程，从python过渡到js
@@ -50,5 +51,5 @@ C++
 
 # 虚拟机
 
- $\sqrt{}$  hyper-V ---
+$\sqrt{}$  hyper-V ---
 
