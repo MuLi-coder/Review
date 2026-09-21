@@ -1,6 +1,8 @@
 # 3DV
 
 knowledge，科研的基础知识积累
+MVS，MVSNet，MVSplat，NeRF，3DGS，pixelSplat，DepthSplat，DUSt3R，VGGT，前馈
+
 
 # 多方工程打通
 
