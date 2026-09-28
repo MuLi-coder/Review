@@ -693,7 +693,7 @@ x_2 \\
 y_2 \\ 
 1 
 \end{bmatrix},
-[\overrightarrow{O_1O_2}]_{O_1} = t = 
+[\overrightarrow{O_2O_1}]_{O_1} = t = 
 \begin{bmatrix}
 t_1 \\ 
 t_2 \\ 
@@ -701,7 +701,7 @@ t_3
 \end{bmatrix}
 $$
 
-下面我们不妨都转移到 $O_1$ 坐标系中。
+下面我们不妨都放到 $O_1$ 坐标系中进行分析。
 
 $$
 [ \overrightarrow{X}\ ]_{O_1} = R_{1\leftarrow 2}\cdot [\overrightarrow{X_2}\ ]_{O_2} + [\ \vec{t}\ ]_{O_1}
@@ -711,26 +711,28 @@ $$
 
 $$
 \begin{bmatrix}
-[\overrightarrow{X_2}]_{O_1} \\
+[\overrightarrow{X}]_{O_1} \\
 1
 \end{bmatrix}=
 T_{1\leftarrow 2}\cdot
 \begin{bmatrix}
-[\overrightarrow{O_2}]_{O_2} \\
+[\overrightarrow{X_2}]_{O_2} \\
 1
 \end{bmatrix}
 $$
 
 
-那么上图中：透明平面就是两个相机的归一化平面。红色向量就是 $\overrightarrow{X_1}$ ，黄色向量就是 $\vec{t}$  ，蓝色向量是 $\overrightarrow{X_2}$，。接下来就是推导：
+那么上图中：透明平面就是两个相机的归一化平面。红色向量就是 $\overrightarrow{X_1}$ ，黄色向量就是 $\vec{t}$  ，蓝色向量是 $\overrightarrow{X_2}$，紫色向量就是 $\overrightarrow{X}$。
+
+下面我只对不在 $O_1$ 坐标系下表示的向量进行标注，未标注的默认是 $O_1$ 坐标系下的表示。
 
 那么如果是同一点，会有 $X$ 落在 $X_1$ 和 $t$ 确定的平面内，则：
 
 $$
 \begin{align}
 0 &= X_1^T\cdot (t\times X) \\
-&=X_1^T\cdot [t\times (RX_2+t)] \\
-&=X_1^T\cdot(t\times RX_2)
+&=X_1^T\cdot [t\times (R\ [X_2]_{O_2}+t)] \\
+&=X_1^T\cdot(t\times R\ [X_2]_{O_2})
 \end{align}
 $$
 
