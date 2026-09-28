@@ -523,6 +523,17 @@ Z_w
 $$
 将这两个部分合在一起就得到了
 
+$$
+\begin{bmatrix}
+X_c \\
+Y_c \\
+Z_c 
+\end{bmatrix}=
+T_{to\ c\ from\ w}\cdot 
+\begin{bmatrix}
+
+\end{bmatrix}
+$$
 
 这个矩阵我们就称为外参矩阵：
 
