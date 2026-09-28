@@ -732,7 +732,7 @@ $$
 \begin{align}
 0 &= X_2^T\cdot (t\times X) \\
 &=X_2^T\cdot [t\times (R\ [X_1]_{O_1}+t)] \\
-&=X_2^T\cdot(t\times R\ [X_2]_{O_2})
+&=X_2^T\cdot(t\times R\ [X_1]_{O_1})
 \end{align}
 $$
 
@@ -753,8 +753,8 @@ $$
 
 $$
 \begin{align}
-0 &= X_1^T\cdot (t\times RX_2) \\
-&= X_1^T\cdot [t]_{\times}R\cdot X_2
+0 &= X_2^T\cdot (t\times R\ [X_1]_{O_1}) \\
+&= X_2^T\cdot [t]_{\times}R\cdot [X_1]_{O_1}
 \end{align}
 $$
 
@@ -769,7 +769,7 @@ $$
 就可以得到著名的 **对极约束方程**
 
 $$
-X_1^TEX_2=0
+[X_2]_{O_2}^T\cdot E\cdot [X_1]_{O_1}=0
 $$
 
 ### 6.3 基础矩阵——融入内参
@@ -778,8 +778,8 @@ $$
 
 $$
 \begin{align}
-X_1 &= K_1^{-1}\cdot p_1 \\
-X_2 &= K_2^{-1}\cdot p_2
+[X_1]_{O_1} &= K_1^{-1}\cdot p_1 \\
+[X_2]_{O_2} &= K_2^{-1}\cdot p_2
 \end{align}
 $$
 
