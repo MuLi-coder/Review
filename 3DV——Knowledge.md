@@ -1426,7 +1426,7 @@ PnP的核心目标是利用已知的空间3D点和他们在2D图像上的投影�
 优化目标是最小化重投影误差：
 
 $$
-E(R,t)=\frac{1}{2}\Sigma_i||p_i-\pi(K,R,t,X_i)||
+E(R,t)=\frac{1}{2}\Sigma_i||p_i-\pi(K,R,t,X_i)||^2
 $$
 
 相应的我们通常用LM（ $Levenberg-Marquardt$ ）算法进行迭代优化。
